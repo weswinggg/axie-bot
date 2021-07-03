@@ -3,7 +3,7 @@ const config = require('./JSONFiles/config.json');
 // create bot
 const client = new Discord.Client();
 
-const prefix = '-';
+const prefix = '*';
 
 // setup filesystem function
 const fs = require('fs');
