@@ -10,7 +10,7 @@ module.exports = {
     // guard if
     if (!channel) return message.channel.send(`${suggestChannel} channel does not exist!`);
 
-    if(!args[0]) return message.reply('Provide your suggestion\n-suggest [suggestion]');
+    if(!args[0]) return message.reply('Provide your suggestion\n*suggest [suggestion]');
 
     let messageArgs = args.join(' ');
     const embed = new Discord.MessageEmbed()
