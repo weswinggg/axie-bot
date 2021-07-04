@@ -13,7 +13,7 @@ module.exports = {
 
     else if(args[0] === "adventure" || args[0] === "pve") {
       return message.channel
-      send({ files: 
+      .send({ files: 
         ['https://scontent.fmnl17-1.fna.fbcdn.net/v/t1.6435-9/193013249_1311363322591525_2002849367408842054_n.png?_nc_cat=108&ccb=1-3&_nc_sid=730e14&_nc_ohc=avGuoYSVb9QAX_xHbCc&_nc_ht=scontent.fmnl17-1.fna&oh=ae46e6631792c8a3b1e47069c77e8407&oe=60E4AF2C']});
       }
   }
