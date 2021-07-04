@@ -48,7 +48,7 @@ client.on('message', message => {
     c.aliases.find( a => a === command)).name;
 
   if (command === 'commands')
-    client.commands.get('commands').execute(message, args, Discord, commandFields);
+    client.commands.get('commands').execute(message, args, Discord, commandFields, prefix);
 
   else if(command)
     client.commands.get(command).execute(message, args, Discord, prefix);
