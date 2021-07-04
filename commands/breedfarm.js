@@ -2,7 +2,7 @@ module.exports = {
   name: 'breed',
   description: 'Breeding info',
   aliases: ['breed'],
-  execute(message, args, Discord) {
+  execute(message, args, Discord, prefix) {
     const newEmbed = new Discord.MessageEmbed()
       .setColor('#40777C')
       .setTitle('Breeding Guide/Farm')

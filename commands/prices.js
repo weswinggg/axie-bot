@@ -2,9 +2,7 @@ module.exports = {
   name: 'price',
   aliases: ['price'],
   description: "ETH/AXS/SLP current price",
-  async execute(message, args, Discord) {
-    
-
+  async execute(message, args, Discord, prefix) {
     const slp = "smooth-love-potion";
     const eth = "ethereum";
     const axs = "axie-infinity";
@@ -14,9 +12,9 @@ module.exports = {
     if(!args[0]) {
       let prices = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${eth},${slp},${axs},$&vs_currencies=${currency}`).then(response => response.json());
 
-      let msg = `1 ${eth} = ${prices[eth][currency]} ${currency.toUpperCase()}\n`;
-      msg += `1 ${axs} = ${prices[axs][currency]} ${currency.toUpperCase()}\n`;
-      msg += `1 ${slp} = ${prices[slp][currency]} ${currency.toUpperCase()}`;
+      let msg = `1 ETH= ${prices[eth][currency]} ${currency.toUpperCase()}\n`;
+      msg += `1 AXS = ${prices[axs][currency]} ${currency.toUpperCase()}\n`;
+      msg += `1 SLP = ${prices[slp][currency]} ${currency.toUpperCase()}`;
       message.channel.send(msg);
     }
 

@@ -2,8 +2,8 @@ module.exports = {
   name: 'slp',
   aliases: ['slp'],
   description: "SLP rewards",
-  execute(message, args, Discord) {
-    if(!args[0]) return message.reply("SLP commands\n*slp [arena/pvp]\n*slp [adventure/pve]");
+  execute(message, args, Discord, prefix) {
+    if(!args[0]) return message.reply(`SLP commands\n${prefix}slp [arena/pvp]\n${prefix}slp [adventure/pve]`);
 
     if(args[0] === "arena" || args[0] === "pvp") {
      return message.channel

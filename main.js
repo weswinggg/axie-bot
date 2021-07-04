@@ -51,7 +51,7 @@ client.on('message', message => {
     client.commands.get('commands').execute(message, args, Discord, commandFields);
 
   else if(command)
-    client.commands.get(command).execute(message, args, Discord);
+    client.commands.get(command).execute(message, args, Discord, prefix);
 
 });
 
