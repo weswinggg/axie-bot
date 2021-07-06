@@ -3,6 +3,7 @@ module.exports = {
   description: 'Breeding info',
   aliases: ['breed'],
   execute(message, args, Discord, prefix) {
+    // provide info for breeding
     const newEmbed = new Discord.MessageEmbed()
       .setColor('#40777C')
       .setTitle('Breeding Guide/Farm')

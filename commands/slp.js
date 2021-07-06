@@ -5,6 +5,7 @@ module.exports = {
   execute(message, args, Discord, prefix) {
     if(!args[0]) return message.reply(`SLP commands\n${prefix}slp [arena/pvp]\n${prefix}slp [adventure/pve]`);
 
+    // provide info for arena/adventure slp reward per stage/mmr
     if(args[0] === "arena" || args[0] === "pvp") {
      return message.channel
      .send({ files: 

@@ -9,6 +9,7 @@ module.exports = {
     const currency = "php";
     const fetch = require('node-fetch');
 
+    // return current prices for ETH SLP AXS
     if(!args[0]) {
       let prices = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${eth},${slp},${axs},$&vs_currencies=${currency}`).then(response => response.json());
 
@@ -18,6 +19,7 @@ module.exports = {
       message.channel.send(msg);
     }
 
+    // return SLP price
     else if(args[0] === "slp") {
       let price;
       await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${slp}&vs_currencies=${currency}`).then(response => response.json()).then(data => {
@@ -27,6 +29,7 @@ module.exports = {
       message.channel.send(`1 ${args[0].toUpperCase()} = ${price} ${currency.toUpperCase()}`);
     }
 
+    // return ETH price
     else if(args[0] === "eth") {
       let price;
       await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${eth}&vs_currencies=${currency}`).then(response => response.json()).then(data => {
@@ -36,6 +39,7 @@ module.exports = {
       message.channel.send(`1 ${args[0].toUpperCase()} = ${price} ${currency.toUpperCase()}`);
     }
 
+    // return AXS price
     else if(args[0] === "axs") {
       let price;
       await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${axs}&vs_currencies=${currency}`).then(response => response.json()).then(data => {

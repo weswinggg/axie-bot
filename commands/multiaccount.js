@@ -3,6 +3,7 @@ module.exports = {
   aliases: ['ma', 'multiaccount'],
   description: 'shows bannable scenario for multiaccount',
   execute(message, args, Discord, prefix) {    
+    // provide info about multi-accounting 
     const newEmbed = new Discord.MessageEmbed()
       .setColor('#C01025')
       .setTitle('Multi-accounting')

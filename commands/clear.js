@@ -3,7 +3,7 @@ module.exports = {
   description: 'Clear messages',
   aliases: ['clear'],
   async execute(message, args, Discord, prefix) {
-    // guard
+    // just for clearing test commands
     let role = message.guild.roles.cache.find(r => r.name === "Mod");
     if (!message.member.roles.cache.has(role.id)) return message.reply('You need to be a Moderator to access this command');
     

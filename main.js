@@ -17,6 +17,7 @@ for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
 
+  // parse for *help/*commands list
   commandFields.push(parseField(command, prefix));
 }
 
@@ -32,9 +33,9 @@ client.once('ready', () => {
   console.log('Axie Guru is now online')
 });
 
-// process messages
+// execute when users message
 client.on('message', message => {
-  // guard if
+  // guard if, ignore messages not starting with the prefix and from the bot itself
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   // accept cmd like "-commands args[0] args[1] ..."
@@ -47,27 +48,33 @@ client.on('message', message => {
   command = client.commands.array().find(c => 
     c.aliases.find( a => a === command)).name;
 
+  // commande module separated because it needs additional parameter (commands list)
   if (command === 'commands')
-    client.commands.get('commands').execute(message, args, Discord, commandFields, prefix);
+    client.commands.get(command).execute(message, args, Discord, commandFields, prefix);
 
+  // the rest of the commands
   else if(command)
     client.commands.get(command).execute(message, args, Discord, prefix);
 
 });
 
-// bot auth
+// bot auth (use your own discord bot token)
+// rename config_sample.json -> config.json
 client.login(config.token);
 
 // parse for fields of commands embed
 function parseField(command, prefix) {
+  // setup for embed fields
   let obj = {name: '', value: ''};
 
   // name = possible commands
+  // parse the list of commands to display
   for(let i = 0; i < command.aliases.length; i++) {
     obj.name += prefix + command.aliases[i];
     if(i !== command.aliases.length - 1) obj.name += '\t';
   }
 
+  // what does the command do
   obj.value = command.description;
   return obj;
 }
