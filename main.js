@@ -7,6 +7,7 @@ const prefix = '*';
 
 // setup filesystem function
 const fs = require('fs');
+const { default: fetch } = require('node-fetch');
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
 client.commands = new Discord.Collection();
@@ -32,6 +33,17 @@ If need more parameters, add a new else if logic when checking the command varia
 client.once('ready', () => {
   console.log('Axie Guru is now online')
 });
+
+// get gas price periodically
+client.on('ready', () => {
+  client.setInterval( async function (){
+    let json = await fetch(`https://www.gasnow.org/api/v3/gas/price?utm_source=:axie-bot`).then(response => response.json());
+    
+    fs.writeFile("./JSONFiles/gas.json", JSON.stringify(json.data), err => {
+      if(err) console.log(err)
+    });
+  }, 30000) // Runs every 30 seconds
+})
 
 // execute when users message
 client.on('message', message => {

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "mm-ronin",
+    "limit": 216000,
+    "desc": "MetaMask to Ronin"
+  },
+  {
+    "id": "ronin-mm",
+    "limit": 241000 ,
+    "desc": "Ronin To MetaMask"
+  },
+  {
+    "id": "binance-mm",
+    "limit": 210000 ,
+    "desc": "Binance To MetaMask"
+  },
+  {
+    "id": "mm-binance",
+    "limit": 21000 ,
+    "desc": "MetaMask To Binance"
+  },
+  {
+    "id": "swap",
+    "limit": 176000,
+    "desc": "Swap SLP/ETH with UNISWAP"
+  }
+]

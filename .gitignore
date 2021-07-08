@@ -1,3 +1,4 @@
 node_modules
-JSONFiles
+JSONFiles/config.json
+JSONFiles/wallet.json
 commands/clear.js
