@@ -57,6 +57,7 @@ client.on('message', message => {
   let command = args.shift();
 
   // get the module name based on the command sent by user thru the aliases
+  if(!client.commands.array().find(c => c.aliases.find( a => a === command))) return;
   command = client.commands.array().find(c => 
     c.aliases.find( a => a === command)).name;
 
