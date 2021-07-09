@@ -71,7 +71,6 @@ module.exports = {
 
       // TODO: add when is next possible claim date
       return message.reply(msg);
-      
     }
   }
 }
