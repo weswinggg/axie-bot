@@ -1,9 +1,21 @@
 const Discord = require('discord.js');
 const config = require('./JSONFiles/config.json');
+const mongoose = require('mongoose');
 // create bot
 const client = new Discord.Client();
 
 const prefix = '*';
+
+mongoose.connect(config.mongo_srv, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+}).then( () => {
+  console.log('connected to the database')
+}).catch( (err) => {
+  console.log(err);
+});
 
 // setup filesystem function
 const fs = require('fs');
