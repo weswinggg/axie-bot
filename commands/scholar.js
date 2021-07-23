@@ -65,7 +65,7 @@ module.exports = {
 
       for(const scholar of scholars) {
         const ethAddress = scholar.address.replace("ronin:", "0x");
-        const data = await fetch(`https://lunacia.skymavis.com/game-api/clients/${ethAddress}/items/1`).then(response => response.json());
+        const data = await fetch(`https://game-api.skymavis.com/game-api/clients/${ethAddress}/items/1`).then(response => response.json());
         embed
           .addField(scholar.name, `${data.total} SLP`, true)
       }
