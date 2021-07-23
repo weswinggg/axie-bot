@@ -60,8 +60,8 @@ module.exports = {
       ethAddress = myWallet.address.replace("ronin:", "0x");
 
       // fetch slp record from the api
-      let data = await fetch(`https://lunacia.skymavis.com/game-api/clients/${ethAddress}/items/1`).then(response => response.json());
-
+      let data = await fetch(`https://game-api.skymavis.com/game-api/clients/${ethAddress}/items/1`).then(response => response.json());
+      
       let msg = `\nClaimable: ${data.claimable_total} SLP`;
       msg += `\nIn Game: ${data.total} SLP`;
 
