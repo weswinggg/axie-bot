@@ -21,7 +21,8 @@ module.exports = {
       let msg = `1 ETH= ${prices[eth][currency]} ${currency.toUpperCase()}\n`;
       msg += `1 AXS = ${prices[axs][currency]} ${currency.toUpperCase()}\n`;
       msg += `1 SLP = ${prices[slp][currency]} ${currency.toUpperCase()}\n`;
-      msg += `1 DPET = ${prices[dpet][currency]} ${currency.toUpperCase()}`;
+      msg += `1 DPET = ${prices[dpet][currency]} ${currency.toUpperCase()}\n`;
+      msg += `1 DPET = ${prices[skill][currency]} ${currency.toUpperCase()}`;
       return message.channel.send(msg);
     }
 
