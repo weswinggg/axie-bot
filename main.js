@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
-const config = require('./JSONFiles/config.json');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 // create bot
 const client = new Discord.Client();
 
 const prefix = '*';
 
-mongoose.connect(config.mongo_srv, {
+mongoose.connect(process.env.mongo_srv, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -37,7 +38,7 @@ for (const file of commandFiles) {
 /*
 To add new commands, create new JS file under commands/
 set aliases for the possible commands (i.e -mp & -marketplace)
-use this execute(message, args, Discord)
+use this execute(message, args, Discord, prefix)
 If need more parameters, add a new else if logic when checking the command variable below
 */
 
@@ -85,7 +86,7 @@ client.on('message', message => {
 
 // bot auth (use your own discord bot token)
 // rename config_sample.json -> config.json
-client.login(config.token);
+client.login(process.env.token);
 
 // parse for fields of commands embed
 function parseField(command, prefix) {

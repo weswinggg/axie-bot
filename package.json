@@ -12,6 +12,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
     "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
     "mongoose": "^5.13.2",
     "mongose": "0.0.2-security",
     "node-fetch": "^2.6.1",

@@ -11,7 +11,7 @@ module.exports = {
     const mist = "mist";
     const currency = "php";
     const fetch = require('node-fetch');
-
+    //TODO: add parse function to clean this code
     let price;
     // return current prices for ETH SLP AXS
     if(!args[0]) {
