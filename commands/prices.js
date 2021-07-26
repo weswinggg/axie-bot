@@ -8,13 +8,14 @@ module.exports = {
     const axs = "axie-infinity";
     const dpet = "my-defi-pet";
     const skill = "cryptoblades";
+    const mist = "mist";
     const currency = "php";
     const fetch = require('node-fetch');
 
     let price;
     // return current prices for ETH SLP AXS
     if(!args[0]) {
-      let prices = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${eth},${slp},${axs},${dpet},${skill},$&vs_currencies=${currency}`).then(response => response.json());
+      let prices = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${eth},${slp},${axs},${dpet},${skill},${mist},$&vs_currencies=${currency}`).then(response => response.json());
       
       if(prices.length === 0) return;
       
@@ -23,6 +24,7 @@ module.exports = {
       msg += `1 SLP = ${prices[slp][currency]} ${currency.toUpperCase()}\n`;
       msg += `1 DPET = ${prices[dpet][currency]} ${currency.toUpperCase()}\n`;
       msg += `1 SKILL = ${prices[skill][currency]} ${currency.toUpperCase()}`;
+      msg += `1 MIST = ${prices[mist][currency]} ${currency.toUpperCase()}`;
       return message.channel.send(msg);
     }
 
@@ -64,6 +66,14 @@ module.exports = {
     else if(args[0] === "skill") {
       await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${skill}&vs_currencies=${currency}`).then(response => response.json()).then(data => {
         price = data[skill][currency];
+      });
+
+      message.channel.send(`1 ${args[0].toUpperCase()} = ${price} ${currency.toUpperCase()}`);;
+    }
+
+    else if(args[0] === "mist") {
+      await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${mist}&vs_currencies=${currency}`).then(response => response.json()).then(data => {
+        price = data[mist][currency];
       });
 
       message.channel.send(`1 ${args[0].toUpperCase()} = ${price} ${currency.toUpperCase()}`);;
